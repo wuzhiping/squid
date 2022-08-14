@@ -19,4 +19,5 @@ https://squidanalyzer.darold.net/
 docker-compose exec squidanalyzer /bin/bash -c "/usr/local/bin/squid-analyzer > /dev/null"
 </pre>
 * http://xxxxx:8090
+<img src="./analyzer.png" />
 
