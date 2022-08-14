@@ -1,0 +1,38 @@
+version: "3.0"
+    
+services:
+  squid:
+    image: datadog/squid
+    volumes:
+      - squid-logs:/var/log/squid
+    restart: always
+    ports:
+      - "3128:3128"
+    
+  squidanalyzer:
+    depends_on:
+      - squid
+    image: coun/squidanalyzer:latest
+    volumes:
+      - squid-logs:/var/log/squid
+      - squidanalyzer-conf:/etc/squidanalyzer
+      - squid-full-logs:/var/www/html/squidreport
+    ports:
+      - "8090:8090"
+    restart: always
+    environment:
+      LANG: en_US
+      LANGUAGE: en_US
+      LC_ALL: C
+      LOCALE: en_US
+      TZ: Asia/Shanghai
+      LOGIN: admin
+      PASS: Passw0rd
+      PATHLOGS: /var/log/squid/access.log 
+      http_proxy: http://squid:3128
+      https_proxy: http://squid:3128
+volumes:
+  squid-logs: {}
+  squidanalyzer-conf: {}
+  squid-full-logs: {}
+  
