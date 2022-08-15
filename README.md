@@ -5,6 +5,7 @@ https://squidanalyzer.darold.net/
     environment:
       http_proxy: http://squid:3128
       https_proxy: http://squid:3128
+      no_proxy: "localhost,127.0.0.1,localaddress,localdomain.com"
 </pre>
 * add cron
   sudo crontab -e
