@@ -8,9 +8,9 @@ https://squidanalyzer.darold.net/
 </pre>
 * add cron
   sudo crontab -e
-  
+  <pre>
   * * * * * curl https://www.xyz.com/oauth2/ip > /dev/null
-  
+  </pre>
   sudo crontab -l
 <pre>
 docker-compose exec squidanalyzer /bin/bash -c "/usr/local/bin/squid-analyzer > /dev/null"
