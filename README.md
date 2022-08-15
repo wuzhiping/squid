@@ -6,7 +6,12 @@ https://squidanalyzer.darold.net/
       http_proxy: http://squid:3128
       https_proxy: http://squid:3128
 </pre>
-* add corn
+* add cron
+  sudo crontab -e
+  
+  * * * * * curl https://www.xyz.com/oauth2/ip > /dev/null
+  
+  sudo crontab -l
 <pre>
 docker-compose exec squidanalyzer /bin/bash -c "/usr/local/bin/squid-analyzer > /dev/null"
 </pre>
